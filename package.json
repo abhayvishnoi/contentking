@@ -44,6 +44,6 @@
     "serve:ssr": "node dist/brandrocket/server/main.js",
     "build:ssr": "ng build && ng run brandrocket:server",
     "prerender": "ng run brandrocket:prerender",
-    "vercel-bulid": "npm run build:ssr"
+    "vercel-build": "npm run build:ssr"
   }
 }
