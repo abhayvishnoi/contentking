@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "./dist/brandrocket/server/main.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
+}

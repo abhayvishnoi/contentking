@@ -12,18 +12,13 @@
   </p>
   <div
     *ngFor="let s2d of pageData.second; let i = index"
-    class="flex flex-col justify-start p-3 animate-fade-in-2"
-    [ngClass]="i % 2 == 0 ? 'md:flex-row' : 'md:flex-row-reverse'"
+    class="flex flex-col justify-start p-3 animate-fade-in-2 odd:md:flex-row even:md:flex-row-reverse"
   >
     <div
       class="flex justify-center md:max-w-xl sm:max-w-4xl p-2 animate-slide-up"
     >
-      <img
-        fetchpriority="high"
-        class="rounded-md"
-        [src]="s2d.img"
-        alt="details-image"
-      />
+      <!-- fetchpriority="high" -->
+      <img class="rounded-md" [src]="s2d.img" alt="details-image" />
     </div>
     <div
       class="flex flex-col justify-center align-items-center p-2 animate-slide-up-2"

@@ -1,11 +1,13 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
 import { ManageResourcesService } from '../shared/manage-resources.service';
-@Injectable({
-  providedIn: 'root',
-})
+import { PLATFORM_ID, Inject, Injectable } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+//@ts-ignore
+@Injectable({ providedIn: 'root' })
 export class AuthService {
-  constructor(private sharedService: ManageResourcesService) {}
+  constructor(
+    private sharedService: ManageResourcesService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
   reqUrl = this.sharedService.reqUrl;
   signup(email: string, password: string, passwordConfirm: string) {
     return this.sharedService.postReq('/signup', {
@@ -31,9 +33,17 @@ export class AuthService {
       token: token,
     });
   }
+  // ngAfterContentInit(): void {
+  //   //Called after ngOnInit when the component's or directive's content has been initialized.
+  //   //Add 'implements AfterContentInit' to the class.
+  // }
   loggedIn() {
-    if (localStorage.getItem('token')) {
-      return true;
+    if (isPlatformBrowser(this.platformId)) {
+      // let item = { key1: 'value1', key2: 'valu2' };
+      // localStorage.setItem(itemIndex, JSON.stringify(item));
+      if (localStorage.getItem('token')) {
+        return true;
+      }
     }
     return false;
   }

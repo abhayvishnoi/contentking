@@ -38,7 +38,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     CanvasToolbarComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
