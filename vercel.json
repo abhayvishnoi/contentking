@@ -1,14 +1,11 @@
 {
-  "builds": [
-    {
-      "src": "./dist/brandrocket/server/main.js",
-      "use": "@vercel/node"
+  "version": 2,
+  "public": true,
+  "name": "brandrocket",
+  "rewrites": [{ "source": "/(.*)", "destination": "/api" }],
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "dist/brandrocket/browser/**"
     }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/"
-    }
-  ]
+  }
 }
