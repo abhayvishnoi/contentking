@@ -1,1 +1,298 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$brandrocket-primary: mat.define-palette(mat.$indigo-palette);
+$brandrocket-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$brandrocket-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$brandrocket-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $brandrocket-primary,
+      accent: $brandrocket-accent,
+      warn: $brandrocket-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($brandrocket-theme);
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* width */
+@layer components {
+  .login-bg {
+    background-image: url("../src/assets/images/loginBG.jpg");
+  }
+  /* "url('src/assets/images/loginBG.jpg')", */
+
+  .bg-gradient-pc {
+    @apply bg-gradient-to-tr from-purple-500 to-cyan-400;
+  }
+  .bg-gradient {
+    @apply bg-gradient-to-tr from-fuchsia-300 to-cyan-300;
+  }
+
+  .bg-gradient-dark {
+    @apply bg-gradient-to-tr from-fuchsia-500 to-cyan-500;
+  }
+  .gradient-r {
+    @apply bg-gradient-to-tr from-red-300 to-yellow-300;
+  }
+  .gradient-r-dark {
+    @apply bg-gradient-to-tr from-red-400 to-yellow-400;
+  }
+  .gradient-g {
+    @apply bg-gradient-to-tr from-green-300 to-blue-300;
+  }
+  .gradient-g-dark {
+    @apply bg-gradient-to-tr from-green-400 to-blue-400;
+  }
+  .gradient-b {
+    @apply bg-gradient-to-tr from-blue-400 to-orange-300;
+  }
+  .gradient-b-dark {
+    @apply bg-gradient-to-tr from-blue-500 to-orange-500;
+  }
+  .gradient-go {
+    @apply bg-gradient-to-tr from-green-300 to-orange-300;
+  }
+  .gradient-go-dark {
+    @apply bg-gradient-to-tr from-green-500 to-orange-400;
+  }
+  .gradient-gp {
+    @apply bg-gradient-to-tr from-green-300 to-pink-300;
+  }
+  .gradient-gp-dark {
+    @apply bg-gradient-to-tr from-green-400 to-pink-400;
+  }
+
+  .text-clip {
+    @apply text-transparent bg-clip-text;
+  }
+
+  .text-gradient {
+    @apply text-transparent text-clip bg-gradient;
+  }
+  .text-gradient-dark {
+    @apply text-transparent text-clip bg-gradient-dark;
+  }
+
+  .text-gradient-r {
+    @apply text-clip gradient-r;
+  }
+  .text-gradient-r-dark {
+    @apply text-clip gradient-r-dark;
+  }
+  .text-gradient-g {
+    @apply text-clip gradient-g;
+  }
+  .text-gradient-g-dark {
+    @apply text-clip gradient-g-dark;
+  }
+  .text-gradient-b {
+    @apply text-clip gradient-b;
+  }
+  .text-gradient-b-dark {
+    @apply text-clip gradient-b-dark;
+  }
+  .text-gradient-go {
+    @apply text-clip gradient-go;
+  }
+  .text-gradient-go-dark {
+    @apply text-clip gradient-go-dark;
+  }
+  .text-gradient-gp {
+    @apply text-clip gradient-gp;
+  }
+  .text-gradient-gp-dark {
+    @apply text-clip gradient-gp-dark;
+  }
+
+  .text-gradient-dark {
+    @apply text-transparent text-clip;
+  }
+
+  .text-gradient-r {
+    @apply text-clip gradient-r;
+  }
+  .text-gradient-r-dark {
+    @apply text-clip gradient-r-dark;
+  }
+  .text-gradient-g {
+    @apply text-clip gradient-g;
+  }
+  .text-gradient-g-dark {
+    @apply text-clip gradient-g-dark;
+  }
+  .text-gradient-b {
+    @apply text-clip gradient-b;
+  }
+  .text-gradient-b-dark {
+    @apply text-clip gradient-b-dark;
+  }
+  .text-gradient-go {
+    @apply text-clip gradient-go;
+  }
+  .text-gradient-go-dark {
+    @apply text-clip gradient-go-dark;
+  }
+  .text-gradient-gp {
+    @apply text-clip gradient-gp;
+  }
+  .text-gradient-gp-dark {
+    @apply text-clip gradient-gp-dark;
+  }
+  //buttons
+  .btn {
+    @apply border-2 px-2 py-2 rounded-md dark:text-white font-sans hover:text-white hover:scale-[1.01] hover:cursor-pointer
+    transition-all duration-150 flex flex-row justify-center items-center;
+  }
+  .btn-f {
+    @apply px-2 py-2 rounded-md font-sans  text-white active:scale-[1.01]
+    transition-all active:duration-150 duration-300 flex flex-row justify-center items-center border-2 border-transparent hover:cursor-pointer;
+  }
+  .btn-disabled {
+    @apply border-2 px-2 py-2 rounded-md font-sans bg-opacity-40 border-dashed 
+    dark:bg-opacity-60 text-white bg-slate-700 line-through decoration-red-400 hover:cursor-default
+     border-rose-400;
+  }
+  .btn-r {
+    @apply btn border-rose-400 hover:bg-rose-500;
+  }
+  .btn-p {
+    @apply btn border-pink-400 hover:bg-pink-500;
+  }
+  .btn-pu {
+    @apply btn border-purple-400 hover:bg-purple-500;
+  }
+  .btn-g {
+    @apply btn border-green-400 hover:bg-green-500;
+  }
+  .btn-e {
+    @apply btn border-emerald-400 hover:bg-emerald-500;
+  }
+  .btn-l {
+    @apply btn border-lime-400 hover:bg-lime-500;
+  }
+  .btn-b {
+    @apply btn border-blue-400 hover:bg-blue-500;
+  }
+  .btn-c {
+    @apply btn border-cyan-400 hover:bg-cyan-500;
+  }
+  .btn-o {
+    @apply btn border-orange-400 hover:bg-orange-500;
+  }
+  .btn-y {
+    @apply btn border-yellow-400 hover:bg-yellow-500;
+  }
+  //filled buttons
+  .btn-r-f {
+    @apply btn-f bg-rose-500 hover:bg-rose-400;
+  }
+  .btn-p-f {
+    @apply btn-f bg-pink-500 hover:bg-pink-400;
+  }
+  .btn-pu-f {
+    @apply btn-f bg-purple-500 hover:bg-purple-400;
+  }
+  .btn-g-f {
+    @apply btn-f bg-green-500 hover:bg-green-400;
+  }
+  .btn-e-f {
+    @apply btn-f bg-emerald-500 hover:bg-emerald-400;
+  }
+  .btn-l-f {
+    @apply btn-f bg-lime-500 hover:bg-lime-400;
+  }
+  .btn-b-f {
+    @apply btn-f bg-blue-500 hover:bg-blue-400;
+  }
+  .btn-c-f {
+    @apply btn-f bg-cyan-500 hover:bg-cyan-400;
+  }
+  .btn-o-f {
+    @apply btn-f bg-orange-500 hover:bg-orange-400;
+  }
+  .btn-y-f {
+    @apply btn-f bg-yellow-500 hover:bg-yellow-400;
+  }
+  .gradient-scroll-v {
+    &::-webkit-scrollbar {
+      @apply w-2;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      @apply rounded-md bg-slate-300 dark:bg-slate-600;
+    }
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      @apply rounded-lg bg-gradient-to-t from-purple-600 to-cyan-500;
+    }
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      @apply from-purple-400 to-cyan-300;
+    }
+  }
+  .gradient-scroll-h {
+    &::-webkit-scrollbar {
+      @apply h-2;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      @apply rounded-md bg-slate-300 dark:bg-slate-600;
+    }
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      @apply rounded-lg bg-gradient-to-r from-purple-600 to-cyan-500;
+    }
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      @apply from-purple-400 to-cyan-300;
+    }
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
