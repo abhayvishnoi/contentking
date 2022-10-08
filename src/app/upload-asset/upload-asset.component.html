@@ -1,0 +1,69 @@
+<div class="upload-container pt-1 font-medium text-lg">
+  <label for="upload">
+    <p class="btn-pu-f">Upload files</p>
+  </label>
+  <input
+    id="upload"
+    type="file"
+    multiple
+    (change)="uploadFiles($event)"
+    class="upload-button"
+    accept="image/png, image/jpeg"
+    style="display: none"
+  />
+  <div
+    *ngIf="uploading || err"
+    class="flex items-center justify-around bg-black text-white font-mono border-4 rounded-md"
+    [ngClass]="err ? 'border-pink-600' : ' border-emerald-400'"
+  >
+    <img
+      *ngIf="!err; else errorimg"
+      class="w-1/2"
+      alt="uploading"
+      src="https://telegra.ph/file/92ae055ee6390bc671e91.gif"
+    />
+    <p>
+      {{ eventText }}
+      {{ uploadingPercent != 0 ? uploadingPercent + "%" : "" }}
+    </p>
+    <ng-template #errorimg>
+      <img
+        src="https://telegra.ph/file/2cfaadd3574b4b6a718c9.gif"
+        alt="error-occured"
+        class="w-1/2"
+      />
+      <p *ngIf="err" class="btn-r px-6" (click)="resetUpload()">Clear</p>
+    </ng-template>
+  </div>
+</div>
+<div
+  class="assets-container grid grid-cols-3 grid-flow-row-dense overflow-y-scroll h-[80%] w-[23.7rem] gradient-scroll-v p-2 bg-slate-100 dark:bg-slate-700 ring-1 ring-inset"
+>
+  <div
+    class="asset-holder flex flex-col rounded-md p-2 h-fit items-center content-start cursor-pointer"
+    [ngClass]="assets[i].count === 1 ? 'border-2  border-pink-600' : ''"
+    [ngClass]="{ 'animate-fade-in-out': assets[i].count === 2 }"
+    *ngFor="let asset of assets; let i = index"
+    (mouseover)="deleteAsset(i)"
+    (mouseleave)="resetDelete(i)"
+  >
+    <img
+      [src]="asset.url"
+      [alt]="asset.name | slice: 0:10"
+      class="w-full cursor-grab active:cursor-grabbing"
+    />
+    <button
+      mat-icon-button
+      class="animate-slide-down-0"
+      *ngIf="assets[i].delete != undefined; else nameTemp"
+      (click)="deleteAsset(i, 1)"
+    >
+      <mat-icon class="text-rose-600">
+        {{ assets[i].delete ? "delete" : "delete_sweep" }}
+      </mat-icon>
+    </button>
+    <ng-template class="asset-name" #nameTemp>
+      {{ asset.name.split(".")[0].slice(0, 10) }}
+    </ng-template>
+  </div>
+</div>

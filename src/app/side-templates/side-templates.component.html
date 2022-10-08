@@ -1,0 +1,16 @@
+<div class="component-container custom-scrollbar">
+  <div class="template-elements-container">
+    <mat-card role="grid" *ngFor="let item of templates">
+      <mat-card-header>
+        <mat-card-title>{{ item.name }}</mat-card-title>
+      </mat-card-header>
+      <img [src]="item.icon" mat-card-md-image class="template-element-image" />
+      <mat-card-content>
+        {{ item.name }}
+      </mat-card-content>
+      <mat-card-actions align="start">
+        <button mat-button>Action1</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="sidebar-container">
+  <div class="toolsbar-container">
+    <mat-icon
+      matTooltip="Templates"
+      matTooltipPosition="right"
+      (click)="toggleSideMenu('templates')"
+      class="sidebar-icon"
+      [ngClass]="{ 'active-icon': sideMenu == 'templates' }"
+      >book</mat-icon
+    >
+    <mat-icon
+      class="sidebar-icon"
+      matTooltip="Colors"
+      matTooltipPosition="right"
+      (click)="toggleSideMenu('pallete')"
+      [ngClass]="{ 'active-icon': sideMenu == 'pallete' }"
+      >palette</mat-icon
+    >
+    <mat-icon
+      class="sidebar-icon"
+      matTooltip="Upload"
+      matTooltipPosition="right"
+      (click)="toggleSideMenu('asset')"
+      [ngClass]="{ 'active-icon': sideMenu == 'asset' }"
+      >file_upload</mat-icon
+    >
+    <mat-icon
+      class="sidebar-icon"
+      matTooltip="Brands"
+      matTooltipPosition="right"
+      (click)="toggleSideMenu('brand')"
+      [ngClass]="{ 'active-icon': sideMenu == 'brand' }"
+      >trending_up</mat-icon
+    >
+  </div>
+  <div class="menu-container">
+    <app-side-templates *ngIf="sideMenu === 'templates'"></app-side-templates>
+    <app-side-pallete *ngIf="sideMenu === 'pallete'"></app-side-pallete>
+    <app-upload-asset *ngIf="sideMenu === 'asset'"></app-upload-asset>
+    <app-side-brands *ngIf="sideMenu === 'brand'"></app-side-brands>
+  </div>
+</div>

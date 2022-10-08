@@ -1,0 +1,37 @@
+<div>
+  <p
+    class="md:text-5xl text-3xl pt-5 text-center text-gradient-dark dark:text-gradient animate-slide-down font-light font-damion"
+  >
+    Welcome to
+  </p>
+
+  <p
+    class="md:text-8xl text-5xl p-5 font-black text-center text-gradient-gp-dark dark:text-gradient-gp animate-fade-in-2 font-sans font-knewave"
+  >
+    BRANDROCKET !
+  </p>
+  <div
+    *ngFor="let s2d of pageData.second; let i = index"
+    class="flex flex-col justify-start p-3 animate-fade-in-2"
+    [ngClass]="i % 2 == 0 ? 'md:flex-row' : 'md:flex-row-reverse'"
+  >
+    <div
+      class="flex justify-center md:max-w-xl sm:max-w-4xl p-2 animate-slide-up"
+    >
+      <img
+        fetchpriority="high"
+        class="rounded-md"
+        [src]="s2d.img"
+        alt="details-image"
+      />
+    </div>
+    <div
+      class="flex flex-col justify-center align-items-center p-2 animate-slide-up-2"
+    >
+      <h1 class="text-xl font-extrabold">{{ s2d.h1 }}</h1>
+      <p class="text-lg pt-2 dark:text-neutral-300">
+        {{ s2d.p }}
+      </p>
+    </div>
+  </div>
+</div>

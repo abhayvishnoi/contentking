@@ -1,0 +1,19 @@
+<div
+  class="h-[90%] w-[23.7rem] overflow-y-scroll mt-5 p-4 grid grid-cols-4 gap-x-5 gap-y-3 gradient-scroll-v overflow-x-hidden"
+>
+  <div
+    class="flex flex-col items-center justify-evenly"
+    *ngFor="let asset of brandColors; let i = index"
+  >
+    <div
+      class="w-20 h-20 rounded-t-md"
+      [ngStyle]="{ background: asset.color }"
+    ></div>
+    <p
+      class="w-20 pl-3 font-mono bg-opacity-20 bg-slate-600 border-2 border-t-0 rounded-b-md"
+      [ngStyle]="{ 'border-color': asset.color }"
+    >
+      {{ asset.color | uppercase }}
+    </p>
+  </div>
+</div>

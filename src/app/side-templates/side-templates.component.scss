@@ -1,0 +1,16 @@
+// @import "custom-scrollbar"'
+.component-container {
+  overflow-y: scroll;
+  height: 100vh;
+}
+.template-elements-container {
+  padding: 20px;
+  padding-left: 0px;
+  display: grid;
+  grid-template-columns: 160px 160px;
+  column-gap: 5px;
+  row-gap: 2px;
+}
+// .template-element-image {
+//   padding-right: 25px;
+// }

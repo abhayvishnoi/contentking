@@ -1,0 +1,51 @@
+.sidebar-container {
+  display: flex;
+  height: 93vh;
+  overflow-y: hidden;
+}
+.toolsbar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(70, 0, 141);
+  border-radius: 15px 0 0 15px;
+  padding: 5px;
+}
+.sidebar-icon {
+  padding: 0.4em;
+  padding-right: 0.9em;
+  padding-bottom: 0.9em;
+  // width: 100%;
+  color: white;
+  font-size: 50px;
+  border-bottom: 1px solid rgb(90, 151, 205);
+  transition: all 400ms;
+}
+.sidebar-icon:hover {
+  color: slateblue;
+  background: white;
+  transform: scale(1.09);
+  border-radius: 15px 0 0 15px;
+}
+.active-icon {
+  background: gainsboro;
+  color: slateblue;
+  transform: scale(1.09);
+  border-radius: 15px 0 0 15px;
+
+  padding: 35px;
+}
+::ng-deep .mat-tooltip {
+  font-size: 15px;
+  white-space: pre-wrap;
+  color: gray !important;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid gray;
+}
+.menu-container {
+  width: max-content;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 97vh;
+  padding-left: 10px;
+}
