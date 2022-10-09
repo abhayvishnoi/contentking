@@ -1,19 +1,13 @@
-<div class="toolbar p-0 pl-1 flex items-center justify-evenly bg-slate-300">
-  <mat-form-field>
-    <mat-select id="font" name="font" [value]="fonts[8].value">
-      <mat-option *ngFor="let font of fonts" [value]="font.value">{{
-        font.name
-      }}</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput type="color" (input)="changeColor()" />
-  </mat-form-field>
-  <mat-form-field>
-    <mat-select name="font-size" id="font-size" [value]="fontSizes[8].value">
-      <mat-option *ngFor="let fontSize of fontSizes" [value]="fontSize.value">{{
-        fontSize.name
-      }}</mat-option>
-    </mat-select>
-  </mat-form-field>
+<div class="px-2 py-2 flex items-center space-x-2 bg-zinc-800">
+  <select id="font" name="font" [value]="fonts[8].value">
+    <option *ngFor="let font of fonts" [value]="font.value">
+      {{ font.name }}
+    </option>
+  </select>
+  <input matInput type="color" (input)="changeColor()" />
+  <select name="font-size" id="font-size" [value]="fontSizes[8].value">
+    <option *ngFor="let fontSize of fontSizes" [value]="fontSize.value">
+      {{ fontSize.name }}
+    </option>
+  </select>
 </div>

@@ -1,39 +1,45 @@
-<div class="sidebar-container">
-  <div class="toolsbar-container">
-    <mat-icon
-      matTooltip="Templates"
-      matTooltipPosition="right"
+<div class="flex h-[39.95rem] overflow-y-hidden">
+  <div class="flex flex-col items-center bg-zinc-900 text-zinc-400">
+    <div
+      title="Templates"
       (click)="toggleSideMenu('templates')"
-      class="sidebar-icon"
-      [ngClass]="{ 'active-icon': sideMenu == 'templates' }"
-      >book</mat-icon
+      class="flex flex-col hover:cursor-pointer items-center justify-between pt-3 px-2 hover:text-white rounded-r-lg"
+      [ngClass]="{
+        'bg-zinc-800 text-white': sideMenu == 'templates'
+      }"
     >
-    <mat-icon
-      class="sidebar-icon"
-      matTooltip="Colors"
-      matTooltipPosition="right"
+      <mat-icon class="h-3 w-3">book</mat-icon>
+      <p class="text-[0.70rem] pt-1">Templates</p>
+    </div>
+    <div
+      title="Pallete"
       (click)="toggleSideMenu('pallete')"
-      [ngClass]="{ 'active-icon': sideMenu == 'pallete' }"
-      >palette</mat-icon
+      class="flex flex-col hover:cursor-pointer items-center justify-between pt-2 px-2 hover:text-white rounded-r-lg"
+      [ngClass]="{ 'bg-zinc-800 text-white': sideMenu == 'pallete' }"
     >
-    <mat-icon
-      class="sidebar-icon"
-      matTooltip="Upload"
-      matTooltipPosition="right"
+      <mat-icon class="h-3 w-3">palette</mat-icon>
+      <p class="text-[0.70rem] pt-1">Pallete</p>
+    </div>
+    <div
+      title="Upload"
       (click)="toggleSideMenu('asset')"
-      [ngClass]="{ 'active-icon': sideMenu == 'asset' }"
-      >file_upload</mat-icon
+      class="flex flex-col hover:cursor-pointer items-center justify-between pt-2 px-2 hover:text-white rounded-r-lg"
+      [ngClass]="{ 'bg-zinc-800 text-white': sideMenu == 'asset' }"
     >
-    <mat-icon
-      class="sidebar-icon"
-      matTooltip="Brands"
-      matTooltipPosition="right"
+      <mat-icon class="h-3 w-3">file_upload</mat-icon>
+      <p class="text-[0.70rem] pt-1">Upload</p>
+    </div>
+    <div
+      title="Brands"
       (click)="toggleSideMenu('brand')"
-      [ngClass]="{ 'active-icon': sideMenu == 'brand' }"
-      >trending_up</mat-icon
+      class="flex flex-col hover:cursor-pointer items-center justify-between pt-2 px-2 hover:text-white rounded-r-lg"
+      [ngClass]="{ 'bg-zinc-800 text-white': sideMenu == 'brand' }"
     >
+      <mat-icon class="h-3 w-3">trending_up</mat-icon>
+      <p class="text-[0.70rem] pt-1">Brands</p>
+    </div>
   </div>
-  <div class="menu-container">
+  <div class="menu-container bg-zinc-800">
     <app-side-templates *ngIf="sideMenu === 'templates'"></app-side-templates>
     <app-side-pallete *ngIf="sideMenu === 'pallete'"></app-side-pallete>
     <app-upload-asset *ngIf="sideMenu === 'asset'"></app-upload-asset>

@@ -1,6 +1,6 @@
 <div [ngClass]="{ dark: darkMode }">
   <div
-    class="flex flex-row p-2 justify-between items-center bg-gray-100 dark:bg-slate-900/75 transition-colors duration-700 dark:bg-opacity-70 dark:backdrop-blur sticky top-0 dark:text-neutral-200 z-50 border-b border-b-slate-900/75 shadow-lg"
+    class="flex flex-row p-2 justify-between items-center bg-gray-100 dark:bg-slate-900/75 transition-colors duration-700 dark:bg-opacity-70 dark:backdrop-blur fixed top-0 min-w-full dark:text-neutral-200 z-50 border-b border-b-slate-900/75 shadow-lg"
   >
     <div
       class="flex items-end hover:cursor-pointer hover:opacity-60"
@@ -29,7 +29,7 @@
     </div>
   </div>
   <div
-    class="dark:bg-slate-800 dark:text-neutral-100 transition-colors duration-700 min-h-screen"
+    class="dark:bg-slate-800 dark:text-neutral-100 transition-colors duration-700 h-full pt-[3.5rem]"
   >
     <router-outlet></router-outlet>
   </div>

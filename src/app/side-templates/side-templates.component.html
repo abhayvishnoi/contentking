@@ -1,16 +1,13 @@
-<div class="component-container custom-scrollbar">
-  <div class="template-elements-container">
-    <mat-card role="grid" *ngFor="let item of templates">
-      <mat-card-header>
-        <mat-card-title>{{ item.name }}</mat-card-title>
-      </mat-card-header>
-      <img [src]="item.icon" mat-card-md-image class="template-element-image" />
-      <mat-card-content>
-        {{ item.name }}
-      </mat-card-content>
-      <mat-card-actions align="start">
-        <button mat-button>Action1</button>
-      </mat-card-actions>
-    </mat-card>
+<div
+  class="h-[38rem] w-[25rem] mt-4 p-3 grid grid-cols-3 gap-x-5 gap-y-3 gradient-scroll-v overflow-x-hidden overflow-y-scroll gradient-scroll-v"
+>
+  <div
+    *ngFor="let item of templates"
+    class="flex flex-col items-center justify-center rounded-md ring-1"
+  >
+    <img [src]="item.icon" class="" />
+    <p class="text-xl font-roboto">
+      {{ item.name | titlecase }}
+    </p>
   </div>
 </div>
