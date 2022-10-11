@@ -1,11 +1,11 @@
-<div class="flex h-[39.95rem] overflow-y-hidden">
+<div class="flex h-full overflow-y-hidden">
   <div class="flex flex-col items-center bg-zinc-900 text-zinc-400">
     <div
       title="Templates"
       (click)="toggleSideMenu('templates')"
-      class="flex flex-col hover:cursor-pointer items-center justify-between pt-3 px-2 hover:text-white rounded-r-lg"
+      class="flex flex-col hover:cursor-pointer items-center justify-between pt-4 px-2 hover:text-white rounded-r-lg w-full transition-colors duration-500"
       [ngClass]="{
-        'bg-zinc-800 text-white': sideMenu == 'templates'
+        'bg-zinc-800 text-white rounded-r-none': sideMenu == 'templates'
       }"
     >
       <mat-icon class="h-3 w-3">book</mat-icon>
@@ -14,8 +14,10 @@
     <div
       title="Pallete"
       (click)="toggleSideMenu('pallete')"
-      class="flex flex-col hover:cursor-pointer items-center justify-between pt-2 px-2 hover:text-white rounded-r-lg"
-      [ngClass]="{ 'bg-zinc-800 text-white': sideMenu == 'pallete' }"
+      class="w-full flex flex-col hover:cursor-pointer items-center justify-between pt-2 px-2 hover:text-white rounded-r-lg transition-colors duration-500"
+      [ngClass]="{
+        'bg-zinc-800 text-white rounded-r-none': sideMenu == 'pallete'
+      }"
     >
       <mat-icon class="h-3 w-3">palette</mat-icon>
       <p class="text-[0.70rem] pt-1">Pallete</p>
@@ -23,8 +25,10 @@
     <div
       title="Upload"
       (click)="toggleSideMenu('asset')"
-      class="flex flex-col hover:cursor-pointer items-center justify-between pt-2 px-2 hover:text-white rounded-r-lg"
-      [ngClass]="{ 'bg-zinc-800 text-white': sideMenu == 'asset' }"
+      class="flex flex-col hover:cursor-pointer items-center justify-between pt-2 px-2 hover:text-white rounded-r-lg w-full transition-colors duration-500"
+      [ngClass]="{
+        'bg-zinc-800 text-white  rounded-r-none': sideMenu == 'asset'
+      }"
     >
       <mat-icon class="h-3 w-3">file_upload</mat-icon>
       <p class="text-[0.70rem] pt-1">Upload</p>
@@ -32,14 +36,16 @@
     <div
       title="Brands"
       (click)="toggleSideMenu('brand')"
-      class="flex flex-col hover:cursor-pointer items-center justify-between pt-2 px-2 hover:text-white rounded-r-lg"
-      [ngClass]="{ 'bg-zinc-800 text-white': sideMenu == 'brand' }"
+      class="flex flex-col hover:cursor-pointer items-center justify-between pt-2 px-2 hover:text-white rounded-r-lg w-full transition-colors duration-500"
+      [ngClass]="{
+        'bg-zinc-800  text-white rounded-r-none': sideMenu == 'brand'
+      }"
     >
       <mat-icon class="h-3 w-3">trending_up</mat-icon>
       <p class="text-[0.70rem] pt-1">Brands</p>
     </div>
   </div>
-  <div class="menu-container bg-zinc-800">
+  <div class="w-full bg-zinc-800">
     <app-side-templates *ngIf="sideMenu === 'templates'"></app-side-templates>
     <app-side-pallete *ngIf="sideMenu === 'pallete'"></app-side-pallete>
     <app-upload-asset *ngIf="sideMenu === 'asset'"></app-upload-asset>

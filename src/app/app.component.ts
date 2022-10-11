@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
     private meta: Meta
   ) {}
   title = 'brandrocket';
-  darkMode: boolean = true;
+  darkMode: boolean = false;
   isLoggedIn = this.auth.loggedIn();
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.

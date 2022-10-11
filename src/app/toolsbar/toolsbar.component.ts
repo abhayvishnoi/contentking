@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./toolsbar.component.scss'],
 })
 export class ToolsbarComponent implements OnInit {
-  sideMenu: 'templates' | 'pallete' | 'asset' | 'brand' = 'templates';
+  sideMenu: 'templates' | 'pallete' | 'asset' | 'brand' = 'asset';
   constructor() {}
 
   ngOnInit(): void {}

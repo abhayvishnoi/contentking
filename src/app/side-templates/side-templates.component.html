@@ -1,12 +1,12 @@
 <div
-  class="h-[38rem] w-[25rem] mt-4 p-3 grid grid-cols-3 gap-x-5 gap-y-3 gradient-scroll-v overflow-x-hidden overflow-y-scroll gradient-scroll-v"
+  class="h-[38rem] mt-4 p-3 grid grid-cols-2 gap-x-2 grid-flow-row overflow-x-hidden overflow-y-scroll visible-scroll-v scroll-smooth"
 >
   <div
     *ngFor="let item of templates"
-    class="flex flex-col items-center justify-center rounded-md ring-1"
+    class="flex flex-col items-center justify-center rounded-md"
   >
     <img [src]="item.icon" class="" />
-    <p class="text-xl font-roboto">
+    <p class="text-md text-white font-roboto">
       {{ item.name | titlecase }}
     </p>
   </div>

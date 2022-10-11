@@ -1,0 +1,16 @@
+// #style1 {
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+//   appearance: none;
+//   width: 10px;
+//   height: 10px;
+//   background-color: transparent;
+//   border: none;
+//   cursor: pointer;
+// }
+.webkit-disable::-webkit-color-swatch {
+  border: none;
+}
+.webkit-disable::-moz-color-swatch {
+  border: none;
+}

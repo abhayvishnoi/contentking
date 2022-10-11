@@ -285,6 +285,63 @@ body {
       @apply from-purple-400 to-cyan-300;
     }
   }
+  .dark-scroll-v {
+    &::-webkit-scrollbar {
+      @apply w-fit;
+    }
+    /* Track */
+    &::-webkit-scrollbar-track {
+      @apply bg-zinc-800;
+    }
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      @apply bg-zinc-600;
+    }
+    /* Handle on hover */
+  }
+  .visible-scroll-v {
+    &::-webkit-scrollbar {
+      @apply w-2;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      @apply hidden;
+    }
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      @apply rounded-md bg-zinc-500;
+    }
+    /* Handle on hover */
+  }
+  .invisible-scroll-h {
+    &::-webkit-scrollbar {
+      @apply h-2;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      @apply hidden;
+    }
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      @apply hidden;
+    }
+  }
+  .visible-scroll-h {
+    &::-webkit-scrollbar {
+      @apply h-2;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      @apply hidden;
+    }
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      @apply rounded-md bg-zinc-500;
+    }
+  }
 }
 
 html,

@@ -1,104 +1,106 @@
-<div class="flex flex-col p-2 transition-colors duration-500">
-  <div
-    class="search flex flex-col rounded-t-xl items-center justify-center bg-gradient-pc p-10 dark:bg-none dark:bg-opacity-20 dark:text-white ring-1 ring-inset dark:ring-sky-900"
-  >
-    <p
-      class="text-2xl md:text-4xl capitalize font-bold text-white md:pb-3 dark:text-gradient"
-    >
-      What will you design?
-    </p>
-    <input
-      id="search-templates"
-      class="p-6 md:w-9/12 mt-4 h-12 rounded-md border-2 border-cyan-500 active:shadow-lg focus:border-purple-500 focus:outline-none md:text-lg w-72 dark:bg-slate-200 dark:bg-opacity-10 dark:border-transparent dark:ring-1 ring-cyan-600 focus:ring-purple-400"
-      type="text"
-      placeholder="Try Story,Post,Twitter or Your Design Name!"
-      (input)="loadTemplates(search.value)"
-      #search
-    />
-  </div>
-  <div
-    id="search-container"
-    class="gradient p-5 bg-slate-200 dark:bg-slate-800 dark:ring-1 dark:text-white overflow-x-scroll rounded-b-lg flex justify-start gradient-scroll-h scroll-smooth"
-    (mouseenter)="toggleVisibility()"
-    (mouseleave)="toggleVisibility()"
-  >
+<div class="dark:bg-slate-800 transition-colors duration-500">
+  <div class="flex flex-col p-2 pt-3 transition-colors duration-500">
     <div
-      (click)="scroll(-80)"
-      class="sticky flex items-center justify-center left-3 z-10 animate-fade-in-0"
-      [ngClass]="elementVisibility ? 'visible' : 'hidden'"
+      class="search flex flex-col rounded-t-xl items-center justify-center bg-gradient-pc p-10 dark:bg-none dark:bg-opacity-20 dark:text-white ring-1 ring-inset dark:ring-sky-900"
     >
-      <button
-        class="absolute bg-slate-500 bg-opacity-30 hover:bg-opacity-40 active:bg-opacity-60 pl-3 pt-2 w-12 h-12 rounded-full text-white dark:bg-opacity-50 dark:ring-1 ring-inset ring-slate-400 dark:hover:bg-opacity-60 dark:active:bg-opacity-90"
+      <p
+        class="text-2xl md:text-4xl capitalize font-bold text-white md:pb-3 dark:text-gradient"
       >
-        <mat-icon class="scale-125">arrow_back_ios</mat-icon>
-      </button>
-    </div>
-    <div
-      class="dash-card ml-4 min-w-fit bg-white p-3 flex flex-col items-center justify-center hover:shadow-2xl hover:scale-105 hover:transition-transform hover:duration-300 text-slate-700 dark:bg-slate-500 dark:bg-opacity-10 dark:text-white dark:ring-1 ring-cyan-900 transition-colors duration-700 dark:shadow-black"
-      *ngFor="
-        let template of filterT ? filterTemplates : templates;
-        let i = index
-      "
-      [routerLink]="['/design', i, 'create']"
-    >
-      <img
-        class="w-24 h-24 rounded-md"
-        [src]="template.icon"
-        [attr.alt]="template.name"
-      />
-      <p class="text-lg font-medium pt-2">
-        {{ template.name | titlecase }}
+        What will you design?
       </p>
-      <p>{{ template.data }}</p>
-      <p class="text-sm">{{ i + 1 }}</p>
-    </div>
-    <div
-      (click)="scroll(80)"
-      class="sticky flex justify-center items-center right-3 z-10 animate-fade-in-0"
-      [ngClass]="elementVisibility ? 'visible' : 'hidden'"
-    >
-      <button
-        class="absolute bg-slate-500 bg-opacity-30 hover:bg-opacity-40 active:bg-opacity-60 pl-1 pt-2 w-12 h-12 rounded-full text-white dark:bg-opacity-50 dark:ring-1 ring-inset ring-slate-400 dark:hover:bg-opacity-60 dark:active:bg-opacity-90"
-      >
-        <mat-icon class="scale-120">arrow_forward_ios</mat-icon>
-      </button>
-    </div>
-  </div>
-</div>
-<div class="recent-navigator p-4 border-b-2 dark:border-slate-600">
-  <div class="flex flex-row place-content-between">
-    <p
-      class="text-4xl font-semibold pb-4 text-gradient-dark dark:text-gradient"
-    >
-      Recent Designs
-    </p>
-    <p class="p-2"><a href="/recent">see all recent</a></p>
-  </div>
-  <div
-    class="recent-templates h-96 grid grid-cols-2 lg:grid-cols-7 md:grid-cols-3 grid-flow-row overflow-y-scroll gap-x-1 gap-y-2 pt-3 gradient-scroll-v scroll-smooth"
-  >
-    <div
-      *ngFor="let e of [].constructor(30); let i = index"
-      class="rounded-lg p-2 md:w-44 w-40 dark:text-white ring-1 ring-inset dark:ring-sky-900 shadow-md dark:shadow-black dark:bg-slate-500 dark:bg-opacity-10 hover:scale-105 border-slate ring-slate-300"
-    >
-      <img
-        src="https://source.unsplash.com/random/1920x1080/?nature,landscape"
-        alt="image"
+      <input
+        id="search-templates"
+        class="p-6 md:w-9/12 mt-4 h-12 rounded-md border-2 border-cyan-500 active:shadow-lg focus:border-purple-500 focus:outline-none md:text-lg w-72 dark:bg-slate-200 dark:bg-opacity-10 dark:border-transparent dark:ring-1 ring-cyan-600 focus:ring-purple-400"
+        type="text"
+        placeholder="Try Story,Post,Twitter or Your Design Name!"
+        (input)="loadTemplates(search.value)"
+        #search
       />
-      <p class="text-base text-center">Content King</p>
-      <p class="text-center">{{ i }}</p>
+    </div>
+    <div
+      id="search-container"
+      class="gradient p-5 bg-slate-200 dark:bg-slate-800 dark:ring-1 dark:text-white overflow-x-scroll rounded-b-lg flex justify-start gradient-scroll-h scroll-smooth"
+      (mouseenter)="toggleVisibility()"
+      (mouseleave)="toggleVisibility()"
+    >
+      <div
+        (click)="scroll(-80)"
+        class="sticky flex items-center justify-center left-3 z-10 animate-fade-in-0"
+        [ngClass]="elementVisibility ? 'visible' : 'hidden'"
+      >
+        <button
+          class="absolute bg-slate-500 bg-opacity-30 hover:bg-opacity-40 active:bg-opacity-60 pl-3 pt-2 w-12 h-12 rounded-full text-white dark:bg-opacity-50 dark:ring-1 ring-inset ring-slate-400 dark:hover:bg-opacity-60 dark:active:bg-opacity-90"
+        >
+          <mat-icon class="scale-125">arrow_back_ios</mat-icon>
+        </button>
+      </div>
+      <div
+        class="dash-card ml-4 min-w-fit bg-white p-3 flex flex-col items-center justify-center hover:shadow-2xl hover:scale-105 hover:transition-transform hover:duration-300 text-slate-700 dark:bg-slate-500 dark:bg-opacity-10 dark:text-white dark:ring-1 ring-cyan-900 transition-colors duration-700 dark:shadow-black"
+        *ngFor="
+          let template of filterT ? filterTemplates : templates;
+          let i = index
+        "
+        [routerLink]="['/design', i, 'create']"
+      >
+        <img
+          class="w-24 h-24 rounded-md"
+          [src]="template.icon"
+          [attr.alt]="template.name"
+        />
+        <p class="text-lg font-medium pt-2">
+          {{ template.name | titlecase }}
+        </p>
+        <p>{{ template.data }}</p>
+        <p class="text-sm">{{ i + 1 }}</p>
+      </div>
+      <div
+        (click)="scroll(80)"
+        class="sticky flex justify-center items-center right-3 z-10 animate-fade-in-0"
+        [ngClass]="elementVisibility ? 'visible' : 'hidden'"
+      >
+        <button
+          class="absolute bg-slate-500 bg-opacity-30 hover:bg-opacity-40 active:bg-opacity-60 pl-1 pt-2 w-12 h-12 rounded-full text-white dark:bg-opacity-50 dark:ring-1 ring-inset ring-slate-400 dark:hover:bg-opacity-60 dark:active:bg-opacity-90"
+        >
+          <mat-icon class="scale-120">arrow_forward_ios</mat-icon>
+        </button>
+      </div>
     </div>
   </div>
-</div>
-<div class="p-3 flex items-center justify-evenly">
-  <p class="p-32 md:pl-32 pl-10 pr-1 text-center animate-levitate-2">
-    <mat-icon class="scale-[5] text-gradient-r-dark dark:text-gradient-r"
-      >rocket</mat-icon
+  <div class="recent-navigator p-4 border-b-2 dark:border-slate-600">
+    <div class="flex flex-row place-content-between">
+      <p
+        class="text-4xl font-semibold pb-4 text-gradient-dark dark:text-gradient"
+      >
+        Recent Designs
+      </p>
+      <p class="p-2"><a href="/recent">see all recent</a></p>
+    </div>
+    <div
+      class="recent-templates h-96 grid grid-cols-2 lg:grid-cols-7 md:grid-cols-3 grid-flow-row overflow-y-scroll gap-x-1 gap-y-2 pt-3 gradient-scroll-v scroll-smooth"
     >
-  </p>
-  <p
-    class="p-20 pl-10 pr-10 md:text-7xl text-5xl font-semibold text-center text-gradient-go-dark dark:text-gradient-go"
-  >
-    <span>Ready to Launch Together!</span>
-  </p>
+      <div
+        *ngFor="let e of [].constructor(30); let i = index"
+        class="rounded-lg p-2 md:w-44 w-40 dark:text-white ring-1 ring-inset dark:ring-sky-900 shadow-md dark:shadow-black dark:bg-slate-500 dark:bg-opacity-10 hover:scale-105 border-slate ring-slate-300"
+      >
+        <img
+          src="https://source.unsplash.com/random/1920x1080/?nature,landscape"
+          alt="image"
+        />
+        <p class="text-base text-center">Content King</p>
+        <p class="text-center">{{ i }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="p-3 flex items-center justify-evenly">
+    <p class="p-32 md:pl-32 pl-10 pr-1 text-center animate-levitate-2">
+      <mat-icon class="scale-[5] text-gradient-r-dark dark:text-gradient-r"
+        >rocket</mat-icon
+      >
+    </p>
+    <p
+      class="p-20 pl-10 pr-10 md:text-7xl text-5xl font-semibold text-center text-gradient-go-dark dark:text-gradient-go"
+    >
+      <span>Ready to Launch Together!</span>
+    </p>
+  </div>
 </div>

@@ -7,7 +7,7 @@ import { ManageResourcesService } from '../shared/manage-resources.service';
   styleUrls: ['./side-brands.component.scss'],
 })
 export class SideBrandsComponent implements OnInit {
-  brands!: any;
+  brands: any = [];
   constructor(private sharedService: ManageResourcesService) {}
 
   ngOnInit(): void {
