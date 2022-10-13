@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { ManageResourcesService } from './shared/manage-resources.service';
 import { AuthService } from './user/auth.service';
 
 @Component({
@@ -12,14 +13,13 @@ export class AppComponent implements OnInit {
   constructor(
     private router: Router,
     private auth: AuthService,
-    private meta: Meta
+    private meta: Meta,
+    private sharedService: ManageResourcesService
   ) {}
   title = 'brandrocket';
-  darkMode: boolean = false;
-  isLoggedIn = this.auth.loggedIn();
+  darkMode: any = false;
+  isLoggedIn = false;
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
     this.meta.addTags([
       {
         name: 'description',
@@ -31,7 +31,22 @@ export class AppComponent implements OnInit {
         content: 'brandrocket,canvas,design,social media,branding',
       },
     ]);
-    this.isLoggedIn = this.auth.loggedIn();
+    this.auth.isLoggedIn.subscribe((res) => {
+      this.isLoggedIn = res;
+      // console.log(this.isLoggedIn);
+    });
+    if (this.sharedService.isBrowser()) {
+      this.darkMode = localStorage.getItem('dark') === 'true';
+      // console.log('onint', this.darkMode);
+    }
+  }
+  changeDarkMode() {
+    // console.log('before', this.darkMode);
+    // let dark = this.darkMode === 'false' ? 'true' : 'false';
+    // console.log(dark);
+    localStorage.setItem('dark', String(!this.darkMode));
+    this.darkMode = localStorage.getItem('dark') === 'true';
+    // console.log('after', this.darkMode);
   }
   logout() {
     this.auth.logout();

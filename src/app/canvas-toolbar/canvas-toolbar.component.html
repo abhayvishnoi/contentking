@@ -1,14 +1,26 @@
 <div
-  class="px-2 py-3 flex items-center justify-start space-x-1 bg-zinc-800 ring-1 ring-inset ring-zinc-700 dark:text-black"
+  class="px-2 pt-3 pb-1 flex items-center justify-start space-x-1 bg-zinc-800 ring-1 ring-inset ring-zinc-700 dark:text-black"
 >
   <select
     id="font"
     class="form-input p-1 text-lg font-roboto rounded-sm"
     name="font"
-    [value]="fonts[8].value"
+    value="Roboto"
   >
-    <option *ngFor="let font of fonts" [value]="font.value">
-      {{ font.name }}
+    <option
+      *ngFor="
+        let font of fonts.length
+          ? fonts
+          : [
+              {
+                family: 'Roboto',
+                file: 'http://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Me5WZLCzYlKw.ttf'
+              }
+            ]
+      "
+      [value]="font.family"
+    >
+      {{ font.family }}
     </option>
   </select>
   <input

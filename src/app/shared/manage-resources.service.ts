@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { PLATFORM_ID, Inject, Injectable } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,12 +8,15 @@ import { Observable } from 'rxjs';
 })
 export class ManageResourcesService {
   // apiurl = 'http://localhost:5000';
-  //local server
+  //local wifi server
   // apiurl = 'http://192.168.0.183:5000';
   //vercel-server
   apiurl = 'https://br-backend.vercel.app';
   reqUrl = (endpoint: string) => this.apiurl + endpoint;
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
   getAllTemplates() {
     return this.http.get<any>(this.reqUrl('/global-templates'));
   }
@@ -31,5 +35,12 @@ export class ManageResourcesService {
   }
   uploadReq(url: string, formData: FormData) {
     return this.http.post(this.reqUrl(url), formData);
+  }
+
+  isBrowser() {
+    if (isPlatformBrowser(this.platformId)) {
+      return true;
+    }
+    return false;
   }
 }

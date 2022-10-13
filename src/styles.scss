@@ -180,7 +180,7 @@ body {
     transition-all duration-150 flex flex-row justify-center items-center;
   }
   .btn-f {
-    @apply px-2 py-2 rounded-md font-sans  text-white active:scale-[1.01]
+    @apply px-2 py-2 rounded-md font-sans text-white active:scale-[1.01]
     transition-all active:duration-150 duration-300 flex flex-row justify-center items-center border-2 border-transparent hover:cursor-pointer;
   }
   .btn-disabled {

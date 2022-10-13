@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ManageResourcesService } from '../shared/manage-resources.service';
 
 @Component({
   selector: 'app-canvas-toolbar',
@@ -6,21 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./canvas-toolbar.component.scss'],
 })
 export class CanvasToolbarComponent implements OnInit {
-  fonts = Array(10)
-    .fill('')
-    .map((e, i) => ({
-      name: `Font - ${i + 1}`,
-      value: `font${i + 1}`,
-    }));
+  fonts: any = [];
   fontSizes = Array(10)
     .fill('')
     .map((e, i) => ({
       name: `${i * 2}`,
       value: `${i * 2}px`,
     }));
-
-  constructor() {}
-
+  constructor(private sharedService: ManageResourcesService) {
+    this.sharedService.getReq('/google-fonts').subscribe((res) => {
+      console.log(res.message);
+      this.fonts = res.message;
+    });
+  }
   ngOnInit(): void {}
   changeColor() {
     console.log(window.getSelection()?.anchorNode);

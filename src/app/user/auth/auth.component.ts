@@ -1,10 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  MinLengthValidator,
-  Validators,
-} from '@angular/forms';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { Location } from '@angular/common';
@@ -91,7 +86,7 @@ export class AuthComponent implements OnInit {
     this.serverMessage = res.message;
     this.msgClass = true;
     if (!this.resetForm && !this.isReset) {
-      localStorage.setItem('token', res.token);
+      this.authService.setToken(res.token);
       this.router.navigate(['/dashboard']);
     }
     this.submitted = false;
