@@ -1,5 +1,5 @@
 <div
-  class="px-2 pt-3 pb-1 flex items-center justify-start space-x-1 bg-zinc-800 ring-1 ring-inset ring-zinc-700 dark:text-black"
+  class="px-2 pt-3 pb-1 flex items-center justify-start space-x-1 bg-zinc-800 ring-1 ring-inset ring-zinc-700 dark:text-black w-screen lg:w-full"
 >
   <select
     id="font"
@@ -20,7 +20,7 @@
       "
       [value]="font.family"
     >
-      {{ font.family }}
+      {{ font.family | slice: 0:10 }}
     </option>
   </select>
   <input

@@ -1,18 +1,18 @@
-<div class="dark:bg-slate-800">
-  <p
-    class="md:text-5xl text-3xl pt-5 text-center text-gradient-dark dark:text-gradient animate-slide-down font-light font-damion"
+<div class="dark:bg-zinc-900 flex flex-col min-h-screen">
+  <!-- <p
+    class="md:text-5xl text-3xl pt-5 text-center animate-slide-down font-light"
   >
     Welcome to
-  </p>
+  </p> -->
 
   <p
-    class="md:text-8xl text-5xl p-5 font-black text-center text-gradient-gp-dark dark:text-gradient-gp animate-fade-in-2 font-sans font-knewave"
+    class="md:text-8xl text-4xl p-5 font-black text-center text-gradient-g-dark animate-fade-in-2 font-sans"
   >
-    BRANDROCKET !
+    BRANDROCKET
   </p>
   <div
     *ngFor="let s2d of pageData.second; let i = index"
-    class="flex flex-col justify-start p-3 animate-fade-in-2 odd:md:flex-row even:md:flex-row-reverse"
+    class="flex flex-col justify-start p-3 animate-fade-in-2 even:md:flex-row odd:md:flex-row-reverse"
   >
     <div
       class="flex justify-center md:max-w-xl sm:max-w-4xl p-2 animate-slide-up"
@@ -23,8 +23,10 @@
     <div
       class="flex flex-col justify-center align-items-center p-2 animate-slide-up-2"
     >
-      <h1 class="text-xl font-extrabold">{{ s2d.h1 }}</h1>
-      <p class="text-lg pt-2 dark:text-neutral-300">
+      <p class="text-4xl text-gradient-dark dark:text-gradient font-extrabold">
+        {{ s2d.h1 }}
+      </p>
+      <p class="text-xl pt-2 dark:text-neutral-200">
         {{ s2d.p }}
       </p>
     </div>

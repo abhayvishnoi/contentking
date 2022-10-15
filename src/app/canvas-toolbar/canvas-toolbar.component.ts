@@ -16,7 +16,7 @@ export class CanvasToolbarComponent implements OnInit {
     }));
   constructor(private sharedService: ManageResourcesService) {
     this.sharedService.getReq('/google-fonts').subscribe((res) => {
-      console.log(res.message);
+      // console.log(res.message);
       this.fonts = res.message;
     });
   }

@@ -1,32 +1,32 @@
+<div class="btn-b-f sticky top-0 w-full z-10" (click)="download()">
+  Download
+</div>
 <div
-  class="flex flex-col overflow-y-scroll h-[36.95rem] bg-zinc-900 dark:dark-scroll-v scroll-smooth"
+  class="flex lg:flex-col lg:overflow-x-hidden overflow-y-scroll overflow-x-scroll lg:h-[36.95rem] bg-zinc-900 dark:dark-scroll-v scroll-smooth lg:w-full h-full w-[20rem] flex-row"
 >
   <div
     *ngFor="let e of [].constructor(10)"
-    class="shadow-lg shadow-white scale-[0.27] w-full h-full"
+    class="outerbox scale-[0.27] caret-red-400 text-5xl font-black font-roboto"
+    #container
   >
-    <div class="outerbox">
-      <div class="header">
-        <div id="headercontent" align="center"></div>
-      </div>
+    <div class="header">
+      <div id="headercontent" align="center"></div>
+    </div>
 
-      <div class="box text" contenteditable="true">
-        <h2 class="border-2 border-sky-500">
-          WHEN LIFE FUCKS YOU , FUCK IT BACK BUT HARDER
-        </h2>
-      </div>
+    <div class="box text" draggable="true" contenteditable="true">
+      <h2 class="">WHEN LIFE FUCKS YOU , FUCK IT BACK BUT HARDER</h2>
+    </div>
 
-      <div class="footer">
-        <div id="footercontent">
-          <div class="footer-item">
-            <img
-              src="https://i.ibb.co/cCg6vD2/zillionairetransparent.png"
-              class="logo"
-            />
-          </div>
-          <div class="footer-item">
-            <span id="username">ZILLIONAIRE.SAYINGS</span>
-          </div>
+    <div class="footer">
+      <div id="footercontent">
+        <div class="footer-item">
+          <img
+            src="https://i.ibb.co/cCg6vD2/zillionairetransparent.png"
+            class="logo"
+          />
+        </div>
+        <div class="footer-item">
+          <span id="username">ZILLIONAIRE.SAYINGS</span>
         </div>
       </div>
     </div>
