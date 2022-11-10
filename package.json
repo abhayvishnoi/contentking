@@ -38,7 +38,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "sw": "ng s --host 192.168.0.183 -o",
-    "surge": "ng build && cd dist/brandrocket && surge --project . --domain https://contentkingav.surge.sh",
+    "surge": "ng build && cd dist/brandrocket && surge --project . --domain https://brandrocket.surge.sh",
     "surge-d": "cd dist/brandrocket && surge --project . --domain https://contentkingav.surge.sh",
     "dev:ssr": "ng run brandrocket:serve-ssr",
     "serve:ssr": "node dist/brandrocket/server/main.js",
